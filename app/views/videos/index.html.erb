@@ -4,6 +4,7 @@
 
 	<%= render "shared/navigation-bar" %>
 
+	<% if @featured_videos %>
 	<% @featured_videos.each do |v| %>
   <div class="grid_6">
       <div class="thumbnail">
@@ -12,7 +13,8 @@
       <h3><%= v.title %></h3>
   </div>
 	<% end %>
-  
+	<% end %>
+	
   <div class="grid_12">
     <%= image_tag("http://placehold.it/940x150&text=Advertisement") %>
   </div>

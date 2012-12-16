@@ -1,6 +1,8 @@
 class Video < ActiveRecord::Base
   extend FriendlyId
   
+  acts_as_voteable
+  
   belongs_to :user
   belongs_to :event
   attr_accessible :description, :title, :url, :user_id, :date, :youtube_id, :event_id
@@ -18,10 +20,9 @@ class Video < ActiveRecord::Base
   before_save :get_youtube_id_from_url
   
   scope :featured, where(:is_featured => true).limit(4)
-  scope :timeline, where(:order => "date DESC").limit(10)
-  scope :top_rated, where(:order => "date DESC").limit(10)
-  scope :random, where(:order => "date DESC").limit(10)
-  scope :newest, where(:all, :order => "created_at DESC").limit(10)
+  scope :timeline, find(:all, :order => "date DESC")
+  scope :top_rated, find(:all, :order => "date DESC")
+  scope :newest, find(:all, :order => "created_at DESC", :limit => 4)
   
   def belongs_to_current_user(current_user)
   	if self.user == current_user

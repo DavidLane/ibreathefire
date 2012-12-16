@@ -9,14 +9,12 @@ class VideosController < ApplicationController
   
   def top_rated
     @videos = Video.top_rated
+    render "index"
   end
   
   def timeline
     @videos = Video.timeline
-  end
-  
-  def random
-    @videos = Video.random
+    render "index"    
   end
 
   def new

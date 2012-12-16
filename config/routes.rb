@@ -12,8 +12,7 @@ Ibreathefire::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   match 'videos/top-rated' => 'videos#top_rated'
-  match 'videos/timeline' => 'videos#timeline' 
-  match 'videos/random' => 'videos#random' 
+  match 'videos/timeline' => 'videos#timeline'  
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
