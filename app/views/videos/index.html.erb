@@ -1,0 +1,36 @@
+  <div class="grid_12">
+    <%= image_tag("http://placehold.it/940x350&text=Banner") %>
+  </div>
+
+  <div class="grid_12" id="category-bar-container">
+    <ul id="category-bar">
+      <li><%= link_to "Add new video", new_video_path %></li>
+      <li>Newest</li>
+      <li>Legit Firebreathers</li>
+      <li>Events</li>
+      <li>Timeline</li>
+      <li>Random</li>
+    </ul>
+  </div>
+
+	<% @featured_videos.each do |v| %>
+  <div class="grid_6">
+      <div class="thumbnail">
+        <%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
+      </div>
+      <h3><%= v.title %></h3>
+  </div>
+	<% end %>
+  
+  <div class="grid_12">
+    <%= image_tag("http://placehold.it/940x150&text=Advertisement") %>
+  </div>
+  
+	<% @videos.each do |v| %>
+  <div class="grid_6">
+      <div class="thumbnail">
+        <%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
+      </div>
+      <h3><%= v.title %></h3>
+  </div>
+	<% end %>  

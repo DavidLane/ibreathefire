@@ -1,0 +1,44 @@
+  <div class="grid_12" id="category-bar-container">
+    <ul id="category-bar">
+      <li><%= link_to "Add new video", new_video_path %></li>
+      <li>Newest</li>
+      <li>Legit Firebreathers</li>
+      <li>Events</li>
+      <li>Timeline</li>
+      <li>Random</li>
+    </ul>
+  </div>
+  
+  <div class="grid_12">
+    <iframe width="940" height="528" src="http://www.youtube.com/embed/<%= @video.youtube_id %>?rel=0&controls=0&modestbranding=1&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="grid_6">
+    <p><%= @video.description %></p>
+    <h3><%= @video.title %></h3>
+    <% if @video.belongs_to_current_user(current_user) %>
+    <%= link_to "Edit", edit_video_path(@video) %>
+    <% end %>
+    <ul>
+      <li>Description: <%= @video.description %></li>
+      <li>Created: <%= @video.created_at %></li>
+    </ul>
+  </div>
+  <div class="grid_6" id="thumbnail-grid">
+    <div class="grid_3 alpha">
+      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
+    </div>
+    <div class="grid_3 omega">
+      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
+    </div>
+    
+    <div class="clearfix">
+      &nbsp;
+    </div>
+    
+    <div class="grid_3 alpha">
+      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
+    </div>
+    <div class="grid_3 omega">
+      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
+    </div>    
+  </div>
