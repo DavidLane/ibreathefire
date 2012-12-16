@@ -1,13 +1,4 @@
-  <div class="grid_12" id="category-bar-container">
-    <ul id="category-bar">
-      <li><%= link_to "Add new video", new_video_path %></li>
-      <li>Newest</li>
-      <li>Legit Firebreathers</li>
-      <li>Events</li>
-      <li>Timeline</li>
-      <li>Random</li>
-    </ul>
-  </div>
+  <%= render "shared/navigation-bar" %>
   
   <div class="grid_12">
     <iframe width="940" height="528" src="http://www.youtube.com/embed/<%= @video.youtube_id %>?rel=0&controls=0&modestbranding=1&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>

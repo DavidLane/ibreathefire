@@ -1,0 +1,14 @@
+  <div class="grid_12">
+    <%= image_tag("http://placehold.it/940x350&text=#{@event.title}") %>
+  </div>
+
+  <%= render "shared/navigation-bar" %>
+  
+	<% @event.videos.each do |v| %>
+  <div class="grid_6">
+      <div class="thumbnail">
+        <%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
+      </div>
+      <h3><%= v.title %></h3>
+  </div>
+	<% end %>  

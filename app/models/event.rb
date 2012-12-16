@@ -1,3 +1,8 @@
 class Event < ActiveRecord::Base
-  attr_accessible :description, :title
+  extend FriendlyId
+  
+  has_many :videos
+  attr_accessible :description, :title, :slug, :as => :admin
+  
+  friendly_id :title, use: :slugged
 end

@@ -1,9 +1,22 @@
 class VideosController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!,
+    :only => [:create, :edit, :update, :destroy, :new]
 
   def index
     @featured_videos = Video.featured
-  	@videos = Video.find(:all, :order => "date DESC")
+  	@videos = Video.newest
+  end
+  
+  def top_rated
+    @videos = Video.top_rated
+  end
+  
+  def timeline
+    @videos = Video.timeline
+  end
+  
+  def random
+    @videos = Video.random
   end
 
   def new

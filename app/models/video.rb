@@ -2,8 +2,9 @@ class Video < ActiveRecord::Base
   extend FriendlyId
   
   belongs_to :user
-  attr_accessible :description, :title, :url, :user_id, :date, :youtube_id
-  attr_accessible :description, :title, :url, :user_id, :date, :slug, :is_featured, :as => :admin
+  belongs_to :event
+  attr_accessible :description, :title, :url, :user_id, :date, :youtube_id, :event_id
+  attr_accessible :description, :title, :url, :user_id, :date, :slug, :is_featured, :event_id, :as => :admin
   
   # Match non-linked youtube URL in the wild. (Rev:20111012)
   @@youtube_regex = /https?:\/\/(?:[0-9A-z-]+\.)?(?:youtu\.be\/|youtube\.com\S*[^\w\-\s])([\w\-]{11})(?=[^\w\-]|$)/
@@ -16,7 +17,11 @@ class Video < ActiveRecord::Base
   
   before_save :get_youtube_id_from_url
   
-  scope :featured, where(:is_featured => true)
+  scope :featured, where(:is_featured => true).limit(4)
+  scope :timeline, where(:order => "date DESC").limit(10)
+  scope :top_rated, where(:order => "date DESC").limit(10)
+  scope :random, where(:order => "date DESC").limit(10)
+  scope :newest, where(:all, :order => "created_at DESC").limit(10)
   
   def belongs_to_current_user(current_user)
   	if self.user == current_user

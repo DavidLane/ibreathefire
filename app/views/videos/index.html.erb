@@ -2,16 +2,7 @@
     <%= image_tag("http://placehold.it/940x350&text=Banner") %>
   </div>
 
-  <div class="grid_12" id="category-bar-container">
-    <ul id="category-bar">
-      <li><%= link_to "Add new video", new_video_path %></li>
-      <li>Newest</li>
-      <li>Legit Firebreathers</li>
-      <li>Events</li>
-      <li>Timeline</li>
-      <li>Random</li>
-    </ul>
-  </div>
+	<%= render "shared/navigation-bar" %>
 
 	<% @featured_videos.each do |v| %>
   <div class="grid_6">

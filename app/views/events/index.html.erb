@@ -1,0 +1,16 @@
+  <div class="grid_12">
+    <%= image_tag("http://placehold.it/940x350&text=Events+Banner") %>
+  </div>
+
+  <%= render "shared/navigation-bar" %>
+  
+	<% @events.each do |e| %>
+  <div class="grid_6">
+      <div class="thumbnail">
+        <%= link_to image_tag("http://placehold.it/460x258&text=#{e.title}", :width => 460, :height => 258), event_path(e) %>
+      </div>
+      <h3><%= e.title %></h3>
+  </div>
+	<% end %>
+  
+  <%= link_to "Suggest an Event", new_event_path %>
