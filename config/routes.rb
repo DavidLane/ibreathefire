@@ -19,7 +19,12 @@ Ibreathefire::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     resources :videos
+     resources :videos do
+     	member do
+     	  post :vote_up
+     	  post :vote_down     	  
+     	end
+     end
      resources :users
      resources :events
 

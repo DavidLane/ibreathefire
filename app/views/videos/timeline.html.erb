@@ -1,0 +1,24 @@
+  <div class="grid_12">
+    <%= image_tag("http://placehold.it/940x350&text=Banner") %>
+  </div>
+
+	<%= render "shared/navigation-bar" %>
+
+  <div class="grid_12">
+	<div id="timeline">
+	   <ul id="dates">
+		<% @videos.each do |v| %>   
+		  <li><a href="#"><%= v.id %></a></li>
+		<% end %>      
+	   </ul>
+	   <ul id="issues">
+		<% @videos.each do |v| %>
+			<li id="video_<%= v.id %>">
+				<%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
+			</li>
+		<% end %>     
+	   </ul>
+	   <a href="#" id="next">+</a> <!-- optional -->
+	   <a href="#" id="prev">-</a> <!-- optional -->
+	</div>
+  </div>

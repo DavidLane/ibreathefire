@@ -1,0 +1,6 @@
+<%= form_for @event do |e| %>
+  <div><label>Title</label><%= e.text_field :title %></div>
+  <div><%= e.submit %></div>
+<% end %>
+
+<%= button_to 'Cancel', :action => "index" %>

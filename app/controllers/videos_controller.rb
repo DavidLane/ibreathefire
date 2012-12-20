@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_filter :authenticate_user!,
-    :only => [:create, :edit, :update, :destroy, :new]
+    :only => [:create, :edit, :update, :destroy, :new, :vote_up, :vote_down]
 
   def index
     @featured_videos = Video.featured
@@ -13,12 +13,25 @@ class VideosController < ApplicationController
   end
   
   def timeline
-    @videos = Video.timeline
-    render "index"    
+    @videos = Video.timeline    
   end
 
   def new
   	@video = Video.new
+  end
+  
+  def vote_up
+  	@video = Video.find(params[:id])  
+  	current_user.vote_for(@video)
+    flash[:notice] = "Vote added"
+    redirect_to video_path(@video)  	
+  end
+  
+  def vote_down
+  	@video = Video.find(params[:id])   
+  	current_user.unvote_for(@video)  
+    flash[:notice] = "Vote removed"
+    redirect_to video_path(@video)
   end
 
   def create
@@ -37,6 +50,13 @@ class VideosController < ApplicationController
 
   def show
   	@video = Video.find(params[:id])
+ 	@voted_for = false
+ 	
+  	if current_user
+		if current_user.voted_for?(@video)
+			@voted_for = true
+		end
+  	end
   end
 
   def edit

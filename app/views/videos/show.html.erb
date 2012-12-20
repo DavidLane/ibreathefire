@@ -6,10 +6,16 @@
   <div class="grid_6">
     <p><%= @video.description %></p>
     <h3><%= @video.title %></h3>
+    <% unless current_user.voted_for?(@video) %>
+    	<%= button_to "Vote Up", vote_up_video_path(@video) %>
+    <%	else %>
+    	<%= button_to "Remove Vote", vote_down_video_path(@video) %>    
+    <%	end %>
     <% if @video.belongs_to_current_user(current_user) %>
     <%= link_to "Edit", edit_video_path(@video) %>
     <% end %>
     <ul>
+      <li>Vote Count: <%= @video.votes_for %></li>    
       <li>Description: <%= @video.description %></li>
       <li>Created: <%= @video.created_at %></li>
     </ul>

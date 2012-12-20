@@ -19,10 +19,10 @@ class Video < ActiveRecord::Base
   
   before_save :get_youtube_id_from_url
   
-  scope :featured, where(:is_featured => true).limit(4)
-  scope :timeline, find(:all, :order => "date DESC")
-  scope :top_rated, find(:all, :order => "date DESC")
-  scope :newest, find(:all, :order => "created_at DESC", :limit => 4)
+  scope :featured, where(:is_featured => true)
+  scope :timeline, order("date DESC")
+  scope :top_rated, tally(:order => "vote_count DESC")
+  scope :newest, order("created_at DESC")
   
   def belongs_to_current_user(current_user)
   	if self.user == current_user
