@@ -13,5 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require scrolltofixed.min
-//= require timeline-min
 //= require_tree .
