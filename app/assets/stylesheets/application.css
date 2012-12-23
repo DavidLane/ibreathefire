@@ -12,7 +12,6 @@
  *= require 960/reset
  *= require 960/text
  *= require 960/960
- *= require timeline/timeline 
  *= require_tree .
  */
  

@@ -4,5 +4,11 @@
 
 $(document).ready ->
 	$('#category-bar').scrollToFixed();
-	timeline = new VMM.Timeline();
-	timeline.init("/videos/timeline.json");
+	createStoryJS({
+		type:		'timeline',
+		width:		'800',
+		height:		'600',
+		source:		'/videos/timeline.json',
+		embed_id:	'timeline',
+		debug:		true
+	});

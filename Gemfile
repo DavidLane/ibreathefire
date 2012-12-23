@@ -9,6 +9,7 @@ gem 'devise'
 gem 'friendly_id'
 gem 'activeadmin'
 gem 'thumbs_up'
+gem 'yaml_db'
 
 # Gems used only for assets and not required
 # in production environments by default.

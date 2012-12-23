@@ -3,24 +3,20 @@
   {
     "headline":"Timeline",
     "type":"default",
-	"startDate":"2009,1",
-	"text":"Explanation goes here",
+	"text":"A History of CFUK",
     "date": [
     
     	<% @videos.each_with_index do |v, i| %>
     	{
-        "startDate":"2010,12",
+        "startDate":"<%= v.date.strftime("%Y") %>,<%= v.date.strftime("%m")%>",
         "headline":"<%= v.title %>",
-        "text":"Created the website for their new advertising campaign.",
+        "text":"<%= v.description %>",
         "asset": {
           "media":"http://www.youtube.com/watch?v=<%= v.youtube_id %>",
           "credit": "",
           "caption": ""
           }    
-        }
-        <% if i != @videos.size -1 %>
-        <%= puts "," %>
-        <% end %>
+        } <%= (i != @videos.size-1) ? "," : "" %>
       <% end %>      
     ]
   }

@@ -5,6 +5,13 @@
 	<%= render "shared/navigation-bar" %>
 
   <div class="grid_12">
-	<div id="timeline">
-	</div>
+	<div id="timeline-embed"></div>
+    <script type="text/javascript">
+        var timeline_config = {
+            width:              '940',
+            height:             '600',
+            source:             '/videos/timeline.json'
+        }
+    </script>
+    <script type="text/javascript" src="/assets/storyjs-embed.js"></script>
   </div>
