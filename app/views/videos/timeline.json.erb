@@ -1,0 +1,27 @@
+{
+  "timeline":
+  {
+    "headline":"Timeline",
+    "type":"default",
+	"startDate":"2009,1",
+	"text":"Explanation goes here",
+    "date": [
+    
+    	<% @videos.each_with_index do |v, i| %>
+    	{
+        "startDate":"2010,12",
+        "headline":"<%= v.title %>",
+        "text":"Created the website for their new advertising campaign.",
+        "asset": {
+          "media":"http://www.youtube.com/watch?v=<%= v.youtube_id %>",
+          "credit": "",
+          "caption": ""
+          }    
+        }
+        <% if i != @videos.size -1 %>
+        <%= puts "," %>
+        <% end %>
+      <% end %>      
+    ]
+  }
+}

@@ -13,7 +13,12 @@ class VideosController < ApplicationController
   end
   
   def timeline
-    @videos = Video.timeline    
+    @videos = Video.timeline
+    
+    respond_to do |format|
+      format.html
+      format.json
+    end    
   end
 
   def new

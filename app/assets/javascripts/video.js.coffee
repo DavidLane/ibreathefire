@@ -5,4 +5,4 @@
 $(document).ready ->
 	$('#category-bar').scrollToFixed();
 	timeline = new VMM.Timeline();
-	timeline.init("/data.json");
+	timeline.init("/videos/timeline.json");
