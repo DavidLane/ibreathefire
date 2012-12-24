@@ -1,5 +1,5 @@
   <div class="grid_12">
-    <%= image_tag("http://placehold.it/940x350&text=Banner") %>
+    <%= image_tag("/assets/banner-1.jpg") %>
   </div>
 
 	<%= render "shared/navigation-bar" %>
@@ -18,8 +18,8 @@
 		<% end %>
 	<% end %>
 	
-  <div class="grid_12">
-    <%= image_tag("http://placehold.it/940x150&text=Advertisement") %>
+  <div class="grid_12 banner-ad">
+    <a href="http://store.razorstorm.co.uk" target="_blank"><%= image_tag("/assets/razorstorm-ad.jpg") %></a>
   </div>
   
 	<% @videos.each do |v| %>
