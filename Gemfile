@@ -10,6 +10,8 @@ gem 'friendly_id'
 gem 'activeadmin'
 gem 'thumbs_up'
 gem 'mysql2'
+gem 'yaml_db'
+gem "paperclip", "~> 3.0"
 
 # Gems used only for assets and not required
 # in production environments by default.

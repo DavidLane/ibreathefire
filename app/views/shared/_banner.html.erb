@@ -1,0 +1,9 @@
+<div class="grid_12">
+  <%
+  	banner = "/assets/banner-1.jpg"
+  	if @event
+  	  banner = @event.banner.url
+  	end
+  %>
+  <%= image_tag(banner) %>
+</div>

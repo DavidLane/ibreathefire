@@ -1,29 +1,31 @@
-  <div class="grid_12">
-    <%= image_tag("http://placehold.it/940x350&text=Banner") %>
-  </div>
-
 	<%= render "shared/navigation-bar" %>
 
 	<% if @featured_videos %>
-	<% @featured_videos.each do |v| %>
-  <div class="grid_6">
-      <div class="thumbnail">
-        <%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
-      </div>
-      <h3><%= v.title %></h3>
-  </div>
-	<% end %>
+		<% @featured_videos.each do |v| %>
+		  <div class="grid_6">
+			  <div class="thumbnail">
+				<%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
+				<div class="title-bar">
+					<h3><%= v.title %></h3>
+					<span>Legit! <%= v.votes_for %></span>
+				</div>
+			  </div>
+		  </div>
+		<% end %>
 	<% end %>
 	
-  <div class="grid_12">
-    <%= image_tag("http://placehold.it/940x150&text=Advertisement") %>
+  <div class="grid_12 banner-ad">
+    <a href="http://store.razorstorm.co.uk" target="_blank"><%= image_tag("/assets/razorstorm-ad.jpg") %></a>
   </div>
   
 	<% @videos.each do |v| %>
-  <div class="grid_6">
-      <div class="thumbnail">
-        <%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
-      </div>
-      <h3><%= v.title %></h3>
-  </div>
+	  <div class="grid_6">
+		  <div class="thumbnail">
+			<%= link_to image_tag(v.get_youtube_thumbnail, :width => 460, :height => 258), video_path(v) %>
+			<div class="title-bar">
+				<h3><%= v.title %></h3>
+					<span>Legit! <%= v.votes_for %></span>
+			</div>
+		  </div>
+	  </div>
 	<% end %>  

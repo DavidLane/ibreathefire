@@ -7,40 +7,10 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
+ * 
  *= require_self
- *= require_tree .
  *= require 960/reset
- *= require 960/960
  *= require 960/text
- */
- 
- h1 {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
- }
- 
- #user-account-bar {
- 	float: right;
- }
- 
- #user-account-bar li {
- 	float: left;
- 	display: inline;
- }
- 
- #category-bar {
- 	background-color: #999;
- 	float: left;
- 	width: 100%;
- }
- 
-#category-bar li {
-	float: left;
-	display: inline;
-	padding: 10px;
-}
-
-#thumbnail-grid img {
-	width: 100%;
-}
+ *= require 960/960
+ *= require style.css
+ *= require_tree .

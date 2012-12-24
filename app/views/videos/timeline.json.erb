@@ -1,0 +1,23 @@
+{
+  "timeline":
+  {
+    "headline":"Timeline",
+    "type":"default",
+	"text":"A History of CFUK",
+    "date": [
+    
+    	<% @videos.each_with_index do |v, i| %>
+    	{
+        "startDate":"<%= v.date.strftime("%Y") %>,<%= v.date.strftime("%m")%>",
+        "headline":"<%= v.title %>",
+        "text":"<%= v.description %>",
+        "asset": {
+          "media":"http://www.youtube.com/watch?v=<%= v.youtube_id %>",
+          "credit": "",
+          "caption": ""
+          }    
+        } <%= (i != @videos.size-1) ? "," : "" %>
+      <% end %>      
+    ]
+  }
+}

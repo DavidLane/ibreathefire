@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>ibreathefire.com</title>
-  <link href='http://fonts.googleapis.com/css?family=Oswald:700,400' rel='stylesheet' type='text/css'>   
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %> 
   <%= csrf_meta_tags %>
@@ -16,7 +15,23 @@
 			<li><%= link_to "Account Settings", edit_user_registration_path %></li>
 			<li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
 		<% else %>
-			<li><%= link_to "Log in", new_user_session_path %></li>		
+			<li id="login-link"><%= link_to "Log in", new_user_session_path %></li>
+			<div id="login">
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				  <div><%= f.label :email %><br />
+				  <%= f.email_field :email %></div>
+
+				  <div><%= f.label :password %><br />
+				  <%= f.password_field :password %></div>
+
+				  <% if devise_mapping.rememberable? -%>
+				    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+				  <% end -%>
+
+				  <div><%= f.submit "Sign in" %></div>
+				<% end %>
+			</div>
+			
 		<% end %>  		
 	</ul>
   </div>
@@ -27,7 +42,8 @@
 	<% end %>	  
 </div>
 <div class="container_12">
-	<%= yield %>
+  <%= render 'shared/banner' %>
+  <%= yield %>
 </div>
 
 </body>
