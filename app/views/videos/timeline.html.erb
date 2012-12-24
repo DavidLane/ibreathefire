@@ -1,17 +1,13 @@
-  <div class="grid_12">
-    <%= image_tag("http://placehold.it/940x350&text=Banner") %>
-  </div>
+<%= render "shared/navigation-bar" %>
 
-	<%= render "shared/navigation-bar" %>
-
-  <div class="grid_12">
-	<div id="timeline-embed"></div>
-    <script type="text/javascript">
-        var timeline_config = {
-            width:              '940',
-            height:             '600',
-            source:             '/videos/timeline.json'
-        }
-    </script>
-    <script type="text/javascript" src="/assets/storyjs-embed.js"></script>
-  </div>
+<div class="grid_12">
+  <div id="timeline-embed"></div>
+  <script type="text/javascript">
+      var timeline_config = {
+          width:              '940',
+          height:             '600',
+          source:             '/videos/timeline.json'
+      }
+  </script>
+  <script type="text/javascript" src="/assets/storyjs-embed.js"></script>
+</div>
