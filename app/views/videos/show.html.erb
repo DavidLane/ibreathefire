@@ -1,30 +1,12 @@
   <div class="grid_12">
     <iframe width="940" height="528" src="http://www.youtube.com/embed/<%= @video.youtube_id %>?rel=0&controls=1&modestbranding=1&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
   </div>
-  <div class="grid_6">
+  <div class="grid_12">
     <p><%= @video.description %></p>
     <h3><%= @video.title %></h3>
-    <ul>    
+    <ul>
+      <li>Video Date: <%= @video.date.strftime('%B %Y') %></li>
       <li>Description: <%= @video.description %></li>
-      <li>Created: <%= @video.created_at %></li>
+      <li>Upload Date: <%= @video.created_at.to_formatted_s(:long)  %></li>
     </ul>
-  </div>
-  <div class="grid_6" id="thumbnail-grid">
-    <div class="grid_3 alpha">
-      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
-    </div>
-    <div class="grid_3 omega">
-      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
-    </div>
-    
-    <div class="clearfix">
-      &nbsp;
-    </div>
-    
-    <div class="grid_3 alpha">
-      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
-    </div>
-    <div class="grid_3 omega">
-      <%= image_tag("http://img.youtube.com/vi/btGdl66IjCA/hqdefault.jpg") %>
-    </div>    
   </div>
