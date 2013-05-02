@@ -25,6 +25,6 @@ production:
   database: ibreathefire
   pool: 5
   username: ibreathefire
-  password: ibreathe123
+  password: t3Rewuzu
   host: localhost
-  socket: /var/run/mysqld/mysqld.sock
+  # socket: /var/run/mysqld/mysqld.sock
