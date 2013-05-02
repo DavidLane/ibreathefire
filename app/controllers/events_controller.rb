@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   def show
   	@event = Event.find(params[:id])
   	unless @event.is_approved.present?
-      flash[:error] = "Sorry, that video hasn't been approved yet"    
+      flash[:error] = "Sorry, that event hasn't been approved yet"    
       redirect_to :index
   	end
   end

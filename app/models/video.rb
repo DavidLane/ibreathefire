@@ -5,8 +5,8 @@ class Video < ActiveRecord::Base
   
   # belongs_to :user
   belongs_to :event
-  attr_accessible :description, :title, :url, :user_id, :date, :youtube_id, :event_id
-  attr_accessible :description, :title, :url, :user_id, :date, :slug, :is_featured, :event_id, :as => :admin
+  attr_accessible :description, :title, :url, :user_id, :date, :youtube_id, :event_id, :is_hidden
+  attr_accessible :description, :title, :url, :user_id, :date, :slug, :is_featured, :event_id, :is_hidden, :as => :admin
   
   # Match non-linked youtube URL in the wild. (Rev:20111012)
   @@youtube_regex = /https?:\/\/(?:[0-9A-z-]+\.)?(?:youtu\.be\/|youtube\.com\S*[^\w\-\s])([\w\-]{11})(?=[^\w\-]|$)/
@@ -19,10 +19,16 @@ class Video < ActiveRecord::Base
   
   before_save :get_youtube_id_from_url
   
+  scope :visible, where(:is_hidden => false)
+  
   scope :featured, where(:is_featured => true)
   scope :timeline, order("date DESC")
   #scope :top_rated, tally(:order => "vote_count DESC")
   scope :newest, order("created_at DESC")
+  
+  scope :visible_featured, lambda{ visible.featured }
+  scope :visible_timeline, lambda{ visible.timeline }
+  scope :visible_newest, lambda{ visible.newest }
   
   def belongs_to_current_user(current_user)
   	if self.user == current_user

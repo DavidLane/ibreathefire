@@ -1,12 +1,12 @@
 class VideosController < ApplicationController
 
   def index
-    @featured_videos = Video.featured
-  	@videos = Video.newest
+    @featured_videos = Video.visible_featured
+  	@videos = Video.visible_newest
   end
   
   def timeline
-    @videos = Video.timeline
+    @videos = Video.visible_timeline
     
     respond_to do |format|
       format.html
