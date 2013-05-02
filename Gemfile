@@ -9,7 +9,7 @@ gem 'rails', '3.2.9'
 #gem 'friendly_id'
 gem 'activeadmin'
 # gem 'thumbs_up'
-gem "can_flag", "~> 1.0"
+# gem "can_flag", "~> 1.0"
 #gem 'mysql2'
 # gem 'yaml_db'
 gem "paperclip", "~> 3.0"
