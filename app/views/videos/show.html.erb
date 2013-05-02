@@ -1,23 +1,10 @@
-  <%= render "shared/navigation-bar" %>
-  
   <div class="grid_12">
     <iframe width="940" height="528" src="http://www.youtube.com/embed/<%= @video.youtube_id %>?rel=0&controls=1&modestbranding=1&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
   </div>
   <div class="grid_6">
     <p><%= @video.description %></p>
     <h3><%= @video.title %></h3>
-    <% if current_user %>
-		<% unless current_user.voted_for?(@video) %>
-			<%= button_to "Vote Up", vote_up_video_path(@video) %>
-		<%	else %>
-			<%= button_to "Remove Vote", vote_down_video_path(@video) %>    
-		<%	end %>
-		<% if @video.belongs_to_current_user(current_user) %>
-		<%= link_to "Edit", edit_video_path(@video) %>
-		<% end %>
-    <% end %>
-    <ul>
-      <li>Vote Count: <%= @video.votes_for %></li>    
+    <ul>    
       <li>Description: <%= @video.description %></li>
       <li>Created: <%= @video.created_at %></li>
     </ul>

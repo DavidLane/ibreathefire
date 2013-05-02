@@ -5,13 +5,15 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'devise'
-gem 'friendly_id'
+# gem 'devise'
+#gem 'friendly_id'
 gem 'activeadmin'
-gem 'thumbs_up'
-gem 'mysql2'
-gem 'yaml_db'
+# gem 'thumbs_up'
+gem "can_flag", "~> 1.0"
+#gem 'mysql2'
+# gem 'yaml_db'
 gem "paperclip", "~> 3.0"
+gem "simple_form"
 
 # Gems used only for assets and not required
 # in production environments by default.

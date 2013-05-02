@@ -1,20 +1,10 @@
-<% if flash[:error] %>
-  <ul>
-  	<% flash[:error].each do |e| %>
-  		<li><%= e %></li>
-  	<% end %>
-  </ul>
+<%= simple_form_for @video do |v| %>
+  <%= v.input :title %>
+  <%= v.input :url %>
+  <%= v.input :date, :discard_day => true, :order => [:month, :year] %>
+  <%= v.association :event %>      
+  <%= v.input :description %>
+  <%= v.submit %>
 <% end %>
-
-<%= form_for @video do |v| %>
-  <div><label>Title</label><%= v.text_field :title %></div>
-  <div><label>URL</label><%= v.text_field :url %></div>
-  <div><label>Date Made</label><%= v.date_select(:date, :discard_day => true, :order => [:month, :year]) %></div>
-  <div><label>Event</label><%= v.collection_select :event_id, Event.all, :id, :title, :prompt => true %></div>      
-  <div><label>Description</label><%= v.text_area :description %></div>
-  <div><%= v.submit %></div>
-<% end %>
-
-<%= button_to 'Cancel', :action => "index" %>
 
 

@@ -1,9 +1,9 @@
 class Video < ActiveRecord::Base
-  extend FriendlyId
+  #extend FriendlyId
   
-  acts_as_voteable
+  #acts_as_voteable
   
-  belongs_to :user
+  # belongs_to :user
   belongs_to :event
   attr_accessible :description, :title, :url, :user_id, :date, :youtube_id, :event_id
   attr_accessible :description, :title, :url, :user_id, :date, :slug, :is_featured, :event_id, :as => :admin
@@ -13,15 +13,15 @@ class Video < ActiveRecord::Base
   
   validates_format_of :url, :with => @@youtube_regex, :message => "must be a valid Youtube URL"
   validates_format_of :slug, :with => /^[\w\-]+$/, :message => "must be a valid slug"
-  validates_presence_of :title, :url, :user_id, :slug
+  validates_presence_of :title, :url, :slug
 
-  friendly_id :title, use: :slugged
+  #friendly_id :title, use: :slugged
   
   before_save :get_youtube_id_from_url
   
   scope :featured, where(:is_featured => true)
   scope :timeline, order("date DESC")
-  scope :top_rated, tally(:order => "vote_count DESC")
+  #scope :top_rated, tally(:order => "vote_count DESC")
   scope :newest, order("created_at DESC")
   
   def belongs_to_current_user(current_user)

@@ -2,7 +2,9 @@
   <%
   	banner = "/assets/banner-1.jpg"
   	if @event
-  	  banner = @event.banner.url
+  	  if @event.banner.present?
+  	   banner = @event.banner.url
+  	  end
   	end
   %>
   <%= image_tag(banner) %>

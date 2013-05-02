@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :slug
   # attr_accessible :title, :body
   
-  acts_as_voter
+  #acts_as_voter
 
   def to_s
     email
